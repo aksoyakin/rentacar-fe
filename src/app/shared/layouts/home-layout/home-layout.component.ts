@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {NavbarComponent} from "../../components/navbar/navbar.component";
+import {NavbarComponent, NavItem, NavTitle} from "../../components/navbar/navbar.component";
 import {FooterComponent} from "../../components/footer/footer.component";
+import {ButtonComponent} from "../../components/button/button.component";
 
 @Component({
   selector: 'app-home-layout',
@@ -13,5 +14,12 @@ import {FooterComponent} from "../../components/footer/footer.component";
   styleUrl: './home-layout.component.scss'
 })
 export class HomeLayoutComponent {
+
+  navTitle : NavTitle = { text: 'Rent A Car', routerLink: '/'}
+  navItems : NavItem[] = [
+    { label: 'Home', link: '/' },
+    { label: 'About', link: '/about' },
+    { label: 'Contact', link: 'mailto:ahmetcetinkaya@tutamail.com' }
+  ];
 
 }
