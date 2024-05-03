@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {HomeLayoutComponent} from "../../shared/layouts/home-layout/home-layout.component";
 import {ButtonComponent} from "../../shared/components/button/button.component";
 import {BrandsListMenuComponent} from "../../features/brands/components/brands-list-menu/brands-list-menu.component";
+import {BrandListItemDto} from "../../features/brands/models/brand-list-item-dto";
 
 @Component({
   selector: 'app-home-page',
@@ -14,8 +15,14 @@ import {BrandsListMenuComponent} from "../../features/brands/components/brands-l
     BrandsListMenuComponent
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrl: './home-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePageComponent {
+  selectedBrand: BrandListItemDto | null = null;
+
+  onSelectBrand(selectedBrand: BrandListItemDto | null){
+    this.selectedBrand = selectedBrand;
+  }
 
 }
