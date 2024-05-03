@@ -1,6 +1,18 @@
 <app-home-layout>
   <div class="d-flex flex-column justify-content-center align-items-center app-overlay">
     <h1>Welcome to our rental gallery!</h1>
-    <app-button variant="primary">View Models</app-button>
+    <app-button>View Models</app-button>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <app-brands-list-menu></app-brands-list-menu>
+      </div>
+      <div class="col-8">
+        app-model-card-list
+      </div>
+    </div>
+  </div>
+
 </app-home-layout>
