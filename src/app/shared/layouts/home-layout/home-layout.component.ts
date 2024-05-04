@@ -19,7 +19,9 @@ export class HomeLayoutComponent {
   navItems : NavItem[] = [
     { label: 'Home', link: '/' },
     { label: 'About', link: '/about' },
-    { label: 'Contact', link: 'mailto:ahmetcetinkaya@tutamail.com' }
+    { label: 'Contact', link: 'mailto:ahmetcetinkaya@tutamail.com' },
+    { label: 'Management', link: '/management' },
+    { label: 'Brands Management', link: '/management/brands' },
   ];
 
 }
