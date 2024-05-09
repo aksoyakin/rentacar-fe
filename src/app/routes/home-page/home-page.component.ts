@@ -3,8 +3,9 @@ import {CommonModule} from "@angular/common";
 import {HomeLayoutComponent} from "../../shared/layouts/home-layout/home-layout.component";
 import {ButtonComponent} from "../../shared/components/button/button.component";
 import {BrandsListMenuComponent} from "../../features/brands/components/brands-list-menu/brands-list-menu.component";
-import {BrandListItemDto} from "../../features/brands/models/brand-list-item-dto";
+//import {BrandListItemDto} from "../../features/brands/models/brand-list-item-dto";
 import {ActivatedRoute, Router} from "@angular/router";
+import {GetAllBrandResponse} from "../../shared/services/api";
 
 @Component({
   selector: 'app-home-page',
@@ -38,7 +39,7 @@ export class HomePageComponent implements OnInit{
     });
   }
 
-  onSelectBrand(selectedBrand: BrandListItemDto | null){
+  onSelectBrand(selectedBrand: GetAllBrandResponse | null){
     this.selectedBrandId = selectedBrand?.id ?? null;
 
     if(this.selectedBrandId !== null)

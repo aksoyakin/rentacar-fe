@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import {CommonModule} from "@angular/common";
+import {AddBrandFormComponent} from "../../../features/brands/components/add-brand-form/add-brand-form.component";
 
 @Component({
   selector: 'app-management-brands-page',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    AddBrandFormComponent,
+  ],
   templateUrl: './management-brands-page.component.html',
   styleUrl: './management-brands-page.component.scss'
 })
