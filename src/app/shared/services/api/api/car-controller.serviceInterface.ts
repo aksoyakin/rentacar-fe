@@ -29,6 +29,10 @@ export interface CreateCarRequestParams {
     createCarRequest: CreateCarRequest;
 }
 
+export interface DeleteCarByIdRequestParams {
+    id: number;
+}
+
 export interface GetCarByIdRequestParams {
     id: number;
 }
@@ -49,6 +53,13 @@ export interface CarControllerServiceInterface {
 * @param requestParameters
      */
     createCar(requestParameters: CreateCarRequestParams, extraHttpRequestParams?: any): Observable<CreatedCarResponse>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    deleteCarById(requestParameters: DeleteCarByIdRequestParams, extraHttpRequestParams?: any): Observable<{}>;
 
     /**
      * 

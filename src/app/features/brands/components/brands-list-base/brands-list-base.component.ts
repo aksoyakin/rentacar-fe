@@ -1,13 +1,13 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
 import {GetAllBrandResponse} from "../../../../shared/services/api";
 import {BrandsService} from "../../services/brands.service";
 
+
 @Component({
-  selector: 'app-brands-list-base',
   standalone: true,
   imports: [],
-  templateUrl: './brands-list-base.component.html',
-  styleUrl: './brands-list-base.component.scss'
+  template: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BrandsListBaseComponent {
   @Input() initialSelectedBrandId: number | null = null;

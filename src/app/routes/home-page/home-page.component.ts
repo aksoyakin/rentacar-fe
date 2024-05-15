@@ -1,11 +1,13 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {CommonModule} from "@angular/common";
+
 import {HomeLayoutComponent} from "../../shared/layouts/home-layout/home-layout.component";
 import {ButtonComponent} from "../../shared/components/button/button.component";
 import {BrandsListMenuComponent} from "../../features/brands/components/brands-list-menu/brands-list-menu.component";
 //import {BrandListItemDto} from "../../features/brands/models/brand-list-item-dto";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GetAllBrandResponse} from "../../shared/services/api";
+import { CommonModule } from '@angular/common';
+import { ModelsCardListComponent } from '../../features/models/components/models-card-list/models-card-list.component';
 
 @Component({
   selector: 'app-home-page',
@@ -14,8 +16,9 @@ import {GetAllBrandResponse} from "../../shared/services/api";
     CommonModule,
     HomeLayoutComponent,
     ButtonComponent,
-    BrandsListMenuComponent
-  ],
+    BrandsListMenuComponent,
+    ModelsCardListComponent,
+],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

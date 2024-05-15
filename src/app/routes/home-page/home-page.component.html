@@ -13,8 +13,9 @@
         </app-brands-list-menu>
       </div>
       <div class="col-8">
-        app-model-card-list
-        {{ selectedBrandId }}
+        <app-models-card-list 
+          [brandId]="selectedBrandId">   
+        </app-models-card-list>
       </div>
     </div>
   </div>

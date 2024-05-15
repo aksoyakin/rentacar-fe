@@ -22,6 +22,7 @@ export class HomeLayoutComponent {
     { label: 'Contact', link: 'mailto:ahmetcetinkaya@tutamail.com' },
     { label: 'Management', link: '/management' },
     { label: 'Brands Management', link: '/management/brands' },
+    { label: 'Models Management', link: '/management/models' },
   ];
 
 }
