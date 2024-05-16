@@ -6,7 +6,8 @@ export const homeRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomePageComponent
+    component: HomePageComponent,
+
   },
 
 ];
