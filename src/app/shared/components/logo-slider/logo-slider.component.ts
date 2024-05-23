@@ -1,14 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+
+
+
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-logo-slider',
   standalone: true,
   imports: [
     CommonModule,
   ],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss',
+  templateUrl: './logo-slider.component.html',
+  styleUrl: './logo-slider.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginPageComponent { }
+export class LogoSliderComponent {
+  
+  
+
+
+ }
+ 

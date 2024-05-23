@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-
 import {RouterModule} from "@angular/router";
 import {HomeLayoutComponent} from "../../shared/layouts/home-layout/home-layout.component";
 

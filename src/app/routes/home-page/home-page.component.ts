@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {GetAllBrandResponse} from "../../shared/services/api";
 import { CommonModule } from '@angular/common';
 import { ModelsCardListComponent } from '../../features/models/components/models-card-list/models-card-list.component';
+import { LogoSliderComponent } from '../../shared/components/logo-slider/logo-slider.component';
 
 @Component({
   selector: 'app-home-page',
@@ -18,6 +19,7 @@ import { ModelsCardListComponent } from '../../features/models/components/models
     ButtonComponent,
     BrandsListMenuComponent,
     ModelsCardListComponent,
+    LogoSliderComponent,
 ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
