@@ -13,5 +13,6 @@ import {HomeLayoutComponent} from "./shared/layouts/home-layout/home-layout.comp
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'rentacar-fe';
+  title = 'Quadriga';
+  
 }

@@ -5,6 +5,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { AuthService } from '../../services/auth/auth.service';
 import { StorageService } from '../../services/storage/storage.service';
 import { error } from 'console';
+import { Route, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +14,8 @@ import { error } from 'console';
     CommonModule,
     ReactiveFormsModule,
     ButtonComponent,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
@@ -28,6 +30,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authServive: AuthService,
+    private router: Router,
   ){  }
 
   ngOnInit(){
@@ -50,6 +53,10 @@ export class LoginPageComponent implements OnInit {
         }
         StorageService.saveToken(res.jwt);
         StorageService.saveUser(user);
+        if(StorageService.isAdminLoggedIn())
+          this.router.navigateByUrl("/admin/dashboard");
+        else
+        this.router.navigateByUrl("/customer/dashboard")
 
       } else {
         
