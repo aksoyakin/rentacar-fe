@@ -2,6 +2,8 @@
 README.md
 api.module.ts
 api/api.ts
+api/auth-controller.service.ts
+api/auth-controller.serviceInterface.ts
 api/brand-controller.service.ts
 api/brand-controller.serviceInterface.ts
 api/car-controller.service.ts
@@ -16,6 +18,8 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/authentication-request.ts
+model/authentication-response.ts
 model/business-problem-details.ts
 model/create-brand-request.ts
 model/create-car-request.ts
@@ -39,6 +43,7 @@ model/get-model-by-id-response.ts
 model/get-transmission-by-id-response.ts
 model/get-transmission-by-id400-response.ts
 model/models.ts
+model/signup-request.ts
 model/update-brand-request.ts
 model/update-brand-response.ts
 model/update-car-request.ts

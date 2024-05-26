@@ -18,5 +18,7 @@ export interface GetCarByIdResponse {
     state?: number;
     dailyPrice?: number;
     modelId?: number;
+    createdDate?: string;
+    modelName?: string;
 }
 

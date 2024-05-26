@@ -11,14 +11,8 @@
  */
 
 
-export interface GetAllCarResponse { 
-    id?: number;
-    modelYear?: number;
-    plate?: string;
-    state?: number;
-    dailyPrice?: number;
-    modelId?: number;
-    createdDate?: string;
-    modelName?: string;
+export interface AuthenticationRequest { 
+    email?: string;
+    password?: string;
 }
 

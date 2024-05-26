@@ -11,14 +11,17 @@
  */
 
 
-export interface GetAllCarResponse { 
-    id?: number;
-    modelYear?: number;
-    plate?: string;
-    state?: number;
-    dailyPrice?: number;
-    modelId?: number;
-    createdDate?: string;
-    modelName?: string;
+export interface AuthenticationResponse { 
+    jwt?: string;
+    userRole?: AuthenticationResponse.UserRoleEnum;
+    userId?: number;
 }
+export namespace AuthenticationResponse {
+    export type UserRoleEnum = 'ADMIN' | 'CUSTOMER';
+    export const UserRoleEnum = {
+        Admin: 'ADMIN' as UserRoleEnum,
+        Customer: 'CUSTOMER' as UserRoleEnum
+    };
+}
+
 

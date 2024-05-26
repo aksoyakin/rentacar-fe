@@ -1,3 +1,5 @@
+export * from './authentication-request';
+export * from './authentication-response';
 export * from './business-problem-details';
 export * from './create-brand-request';
 export * from './create-car-request';
@@ -20,6 +22,7 @@ export * from './get-fuel-by-id-response';
 export * from './get-model-by-id-response';
 export * from './get-transmission-by-id400-response';
 export * from './get-transmission-by-id-response';
+export * from './signup-request';
 export * from './update-brand-request';
 export * from './update-brand-response';
 export * from './update-car-request';
