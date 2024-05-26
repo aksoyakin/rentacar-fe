@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { StorageService } from '../../services/storage/storage.service';
 import { error } from 'console';
 import { Route, Router, RouterModule } from '@angular/router';
+import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-layout.component';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,8 @@ import { Route, Router, RouterModule } from '@angular/router';
     ReactiveFormsModule,
     ButtonComponent,
     FormsModule,
-    RouterModule
+    RouterModule,
+    HomeLayoutComponent
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
