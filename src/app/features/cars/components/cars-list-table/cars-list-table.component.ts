@@ -4,7 +4,9 @@ import {TableDirective} from "../../../../shared/directives/table.directive";
 import {CommonModule} from "@angular/common";
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
-import { CarControllerService } from '../../../../shared/services/api';
+import { CarControllerService, ModelControllerService } from '../../../../shared/services/api';
+import { Observable } from 'rxjs';
+import { ModelsCardListComponent } from '../../../models/components/models-card-list/models-card-list.component';
 
 
 @Component({
@@ -22,10 +24,14 @@ import { CarControllerService } from '../../../../shared/services/api';
 })
 export class CarsListTableComponent extends CarsListBaseComponent{
 
+
+
   constructor(
     carsService: CarControllerService, 
     change: ChangeDetectorRef,
-    private carControllerService: CarControllerService
+    private carControllerService: CarControllerService,
+
+
   ){
     super(carsService,change);
   }
@@ -37,5 +43,8 @@ export class CarsListTableComponent extends CarsListBaseComponent{
       },
     });
   }
+
+
+
 
 }
