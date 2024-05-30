@@ -36,6 +36,8 @@ export class CarsListTableComponent extends CarsListBaseComponent{
     super(carsService,change);
   }
 
+ 
+
   deleteCar(id: number) {
     this.carControllerService.deleteCarById({ id }).subscribe({
       complete: () => {

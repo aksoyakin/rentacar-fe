@@ -35,7 +35,9 @@ export class CarsListMenuComponent extends CarsListBaseComponent implements OnIn
       this.cars?.map((car) => {
         return {
           label: car.modelName!, // ' ! ' : null olmayan bir değer olduğunu belirtir. //değiştirilecek modelName ile
+         
           click: (_: MouseEvent) => this.onSelectCar(car),
+
         };
       }) ?? []
     );

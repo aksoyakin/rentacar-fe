@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { BrandControllerService, FuelControllerService, GetAllBrandResponse, GetAllFuelResponse, GetAllModelResponse, GetAllTransmissionResponse, ModelControllerService, TransmissionControllerService } from '../../../../shared/services/api';
+import { BrandControllerService, CarControllerService, FuelControllerService, GetAllBrandResponse, GetAllCarResponse, GetAllFuelResponse, GetAllModelResponse, GetAllTransmissionResponse, ModelControllerService, TransmissionControllerService } from '../../../../shared/services/api';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { CardComponent } from '../../../../shared/components/card/card.component';
 

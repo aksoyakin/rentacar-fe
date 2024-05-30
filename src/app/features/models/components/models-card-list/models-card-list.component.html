@@ -1,5 +1,7 @@
-<div class="row">
-    @for (model of filteredModels; track $index) {
+ <div class="row">
+    @for (model of filteredModels; track $index) 
+    
+    {
       <app-card
         [title]="model.name!"
         [text]="getModelCardText(model)"
@@ -9,3 +11,4 @@
       }
   
   </div>
+
