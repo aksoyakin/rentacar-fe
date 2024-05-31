@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-
-import {AddCarFormComponent} from "../../../features/cars/components/add-car-form/add-car-form.component";
-import {
-  CarsListTableComponent
-} from "../../../features/cars/components/cars-list-table/cars-list-table.component";
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CarsListTableComponent } from '../../../features/cars/cars-list-table/cars-list-table.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
 
@@ -15,11 +11,18 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     CarsListTableComponent,
     ButtonComponent,
-    RouterModule
-],
-  templateUrl: './management-cars-page.component.html',
-  styleUrl: './management-cars-page.component.scss'
-})
-export class ManagementCarsPageComponent {
+    RouterModule,
+  ],
+  template: `
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Cars</h1>
+      <app-button routerLink="/management/cars/create" variant="primary">Create Car</app-button>
+    </div>
 
-}
+    <app-cars-list-table></app-cars-list-table>
+
+  `,
+  styles: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ManagementCarsPageComponent { }

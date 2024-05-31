@@ -1,18 +1,12 @@
 import { Routes } from '@angular/router';
-import {managementRoutes} from "./routes/management-page/management.routes";
-import {NotFoundPageComponent} from "./routes/not-found-page/not-found-page.component";
-import {homeRoutes} from "./routes/home-page/home.routes";
-import { aboutRoutes } from './routes/about-page/about-routes';
-import { loginRoutes } from './auth/components/login-page/login.routes';
-import { signupRoutes } from './auth/components/signup-page/signup.routes';
-import { AdminDashboardComponent } from './modules/admin/components/admin-dashboard/admin-dashboard.component';
-import { AdminComponent } from './modules/admin/admin/admin.component';
-import { CustomerComponent } from './modules/customer/customer/customer.component';
-import { CustomerDashboardComponent } from './modules/customer/components/customer-dashboard/customer-dashboard.component';
+import { managementRoutes } from './routes/management-page/management.routes';
+import { homeRoutes } from './routes/home-page/home.routes';
+
 
 export const routes: Routes = [
-  ...homeRoutes,
   ...managementRoutes,
+   ...homeRoutes,
+/*  
   ...aboutRoutes,
   ...loginRoutes,
   ...signupRoutes,
@@ -37,6 +31,6 @@ export const routes: Routes = [
       component: CustomerDashboardComponent,
       }
     ]
-  },
+  }, */
 
 ];

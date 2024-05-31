@@ -1,0 +1,123 @@
+<!-- Table 1 - Bootstrap Brain Component -->
+<table appTable>
+    <section class="py-3 py-md-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9 col-xl-12">
+            <div class="card widget-card border-light shadow-sm">
+              <div class="card-body p-4">
+                <h5 class="card-title widget-card-title mb-4">Cars List</h5>
+                <div class="table-responsive">
+                  <table class="table table-borderless bsb-table-xl text-nowrap align-middle m-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Mileage Counter</th>
+                        <th scope="col">Seating Capacity</th>
+                        <th scope="col">Plate</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Model ID</th>
+                        <th scope="col">Transmission ID</th>
+                        <th scope="col">Fuel ID</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (car of cars; track $index) {
+                      <tr>
+                        <th scope="row"> {{car.id}} </th>
+                        <td>
+                          <h6 class="mb-1"> {{car.year}} </h6>
+                          <!-- <span class="text-secondary fs-7"> {{car}} </span> -->
+                        </td>
+                        <td>
+                          <h6 class="mb-1">{{car.mileageCounter}}</h6>
+  <!--                         <span class="text-secondary fs-7">Model Year</span> -->
+                        </td>
+                        <td>
+                          <h6 class="mb-1">{{car.seatingCapacity}}</h6>
+  <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+                        <td>
+                            <h6 class="mb-1">{{car.plate}}</h6>
+    <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+                        <td>
+                            <h6 class="mb-1">{{car.color}}</h6>
+    <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+                        <td>
+                            <h6 class="mb-1">{{car.price | currency}}</h6>
+    <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+                        <td>
+                            @if(car.state == 1){
+                            <span class="badge rounded-pill bg-danger">Available</span>
+                            }@else if (car.state == 2) {
+                            <span class="badge rounded-pill bg-success">Rented</span>
+                            }@else if (car.state == 3){
+                            <span class="badge rounded-pill bg-info">Under Maintanence</span>} 
+                        </td>
+                        <td>
+                            <h6 class="mb-1">{{car.description}}</h6>
+    <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+                        <td>
+                            <h6 class="mb-1">{{car.modelId}}</h6>
+    <!--                         <span class="text-secondary fs-7">Plate</span> -->
+                        </td>
+
+                         <td>
+                            @if(car.transmissionTypeId == 1){
+                            <span class="badge rounded-pill bg-danger">Manual</span> 
+                            }@else if (car.transmissionTypeId == 2){
+                            <span class="badge rounded-pill bg-danger">Semi-Automatic</span>     
+                            }@else if (car.transmissionTypeId == 3){
+                            <span class="badge rounded-pill bg-danger">Full-Automatic</span> 
+                            }   
+                        </td>
+                        <td>
+                            @if(car.fuelTypeId == 1){
+                            <span class="badge rounded-pill bg-danger">Petrol</span> 
+                            }@else if (car.fuelTypeId == 2){
+                            <span class="badge rounded-pill bg-danger">Diesel</span>     
+                            }@else if (car.fuelTypeId == 3){
+                            <span class="badge rounded-pill bg-danger">Gas</span> 
+                            }@else if (car.fuelTypeId == 4){
+                            <span class="badge rounded-pill bg-danger">Hybrid</span>     
+                            }
+                        </td>
+
+                          
+                          <td>
+                            <div class="d-flex justify-content-end">
+                              <app-button 
+                                [routerLink]="['/management/cars/edit', car.id]" 
+                                variant="warning">
+                                Edit
+                              </app-button>
+                              <app-button
+                                class="ms-3" 
+                                (click)="deleteCar(car.id!)"  
+                                variant="danger">
+                                Delete
+                              </app-button>
+                            </div>
+                          </td>
+                      </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </table>
+  

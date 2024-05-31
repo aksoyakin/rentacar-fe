@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { BrandService } from '../../services/brand.service';
 import { BrandControllerService } from '../../../../shared/services/api';
-import { BrandsService } from '../../services/brands.service';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-edit-brand-form',
@@ -12,14 +12,13 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ButtonComponent,
+    ButtonComponent
   ],
   templateUrl: './edit-brand-form.component.html',
   styleUrl: './edit-brand-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditBrandFormComponent implements OnInit {
-
+export class EditBrandFormComponent {
   @Input() brandId!: number;
 
   form!: FormGroup;
@@ -27,7 +26,7 @@ export class EditBrandFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
-    private brandsService:BrandsService,
+    private brandsService:BrandService,
     private brandControllerService: BrandControllerService,
     private change: ChangeDetectorRef,
     private router: Router
@@ -57,7 +56,7 @@ export class EditBrandFormComponent implements OnInit {
       name: this.form.value.name
     }}).subscribe({
       complete: () => {
-        this.formMessage = 'Brand updated successfully';
+        this.formMessage = 'Brand updated successfully.';
         this.change.markForCheck;
 
         setTimeout(() => {
@@ -74,6 +73,4 @@ export class EditBrandFormComponent implements OnInit {
     }
     this.edit();
   }
-
-
-}
+ }

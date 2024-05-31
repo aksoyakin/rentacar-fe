@@ -1,12 +1,13 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 export type MenuItem = {
   label: string;
   routerLink ?: string;
   click ?: (event: MouseEvent) => void;
 };
+
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -18,7 +19,9 @@ export type MenuItem = {
   styleUrl: './menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class MenuComponent {
+  
   @Input() selectedItemIndex : number | null = null;
   @Input() items: MenuItem[] = [];
 
@@ -30,4 +33,4 @@ export class MenuComponent {
       menuItem.click(event);
     }
   }
-}
+ }

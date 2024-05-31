@@ -17,7 +17,6 @@ import { CreateModelRequest } from '../model/models';
 import { CreatedModelResponse } from '../model/models';
 import { GetAllModelResponse } from '../model/models';
 import { GetModelByIdResponse } from '../model/models';
-import { GetTransmissionById400Response } from '../model/models';
 import { UpdateModelRequest } from '../model/models';
 import { UpdateModelResponse } from '../model/models';
 
@@ -31,6 +30,10 @@ export interface CreateModelRequestParams {
 
 export interface DeleteModelByIdRequestParams {
     id: number;
+}
+
+export interface FindBrandByNameRequestParams {
+    name: string;
 }
 
 export interface GetModelByIdRequestParams {
@@ -60,6 +63,13 @@ export interface ModelControllerServiceInterface {
 * @param requestParameters
      */
     deleteModelById(requestParameters: DeleteModelByIdRequestParams, extraHttpRequestParams?: any): Observable<{}>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    findBrandByName(requestParameters: FindBrandByNameRequestParams, extraHttpRequestParams?: any): Observable<Array<GetAllModelResponse>>;
 
     /**
      * 

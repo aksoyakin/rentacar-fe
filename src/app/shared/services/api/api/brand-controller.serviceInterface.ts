@@ -17,7 +17,6 @@ import { CreateBrandRequest } from '../model/models';
 import { CreatedBrandResponse } from '../model/models';
 import { GetAllBrandResponse } from '../model/models';
 import { GetBrandByIdResponse } from '../model/models';
-import { GetTransmissionById400Response } from '../model/models';
 import { UpdateBrandRequest } from '../model/models';
 import { UpdateBrandResponse } from '../model/models';
 
@@ -31,6 +30,10 @@ export interface CreateBrandRequestParams {
 
 export interface DeleteBrandByIdRequestParams {
     id: number;
+}
+
+export interface FindBrandByName1RequestParams {
+    name: string;
 }
 
 export interface GetBrandByIdRequestParams {
@@ -60,6 +63,13 @@ export interface BrandControllerServiceInterface {
 * @param requestParameters
      */
     deleteBrandById(requestParameters: DeleteBrandByIdRequestParams, extraHttpRequestParams?: any): Observable<{}>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    findBrandByName1(requestParameters: FindBrandByName1RequestParams, extraHttpRequestParams?: any): Observable<Array<GetAllBrandResponse>>;
 
     /**
      * 

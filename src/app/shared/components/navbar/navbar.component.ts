@@ -1,7 +1,7 @@
-import {Component, Input, TemplateRef} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {RouterModule} from "@angular/router";
-import {ButtonComponent} from "../button/button.component";
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ButtonComponent } from '../button/button.component';
 
 export type NavItem = {
   label: string;
@@ -12,6 +12,7 @@ export type NavTitle = {
   text: string;
   routerLink ?: string | string[];
 }| undefined;
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -21,9 +22,11 @@ export type NavTitle = {
     ButtonComponent
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  
   @Input() title: NavTitle;
   @Input() navItems :NavItem[] = [];
   @Input() endContentTemplate ?: TemplateRef<any>;
@@ -41,4 +44,4 @@ export class NavbarComponent {
     return urlRegex.test(url);
   }
 
-}
+ }

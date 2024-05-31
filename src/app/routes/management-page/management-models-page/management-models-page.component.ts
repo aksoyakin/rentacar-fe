@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-
-import {AddModelFormComponent} from "../../../features/models/components/add-model-form/add-model-form.component";
-import {
-  ModelsListTableComponent
-} from "../../../features/models/components/models-list-table/models-list-table.component";
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ModelsListTableComponent } from '../../../features/models/models-list-table/models-list-table.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
 
@@ -15,11 +11,20 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ModelsListTableComponent,
     ButtonComponent,
-    RouterModule
-],
-  templateUrl: './management-models-page.component.html',
-  styleUrl: './management-models-page.component.scss'
-})
-export class ManagementModelsPageComponent {
+    RouterModule,
+  ],
+  template:`
+  
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Models</h1>
+    <app-button routerLink="/management/models/create" variant="primary">Create Model</app-button>
+  </div>
 
-}
+  <app-models-list-table></app-models-list-table>
+
+  
+  `,
+  styles:``,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ManagementModelsPageComponent { }

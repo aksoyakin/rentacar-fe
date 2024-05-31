@@ -13,33 +13,52 @@ import { HttpHeaders }                                       from '@angular/comm
 
 import { Observable }                                        from 'rxjs';
 
-import { CreateCarRequest } from '../model/models';
-import { CreatedCarResponse } from '../model/models';
-import { GetAllCarResponse } from '../model/models';
-import { GetCarByIdResponse } from '../model/models';
-import { GetTransmissionById400Response } from '../model/models';
-import { UpdateCarRequest } from '../model/models';
-import { UpdateCarResponse } from '../model/models';
+import { CarRequest } from '../model/models';
+import { CarResponse } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';
 
 
 export interface CreateCarRequestParams {
-    createCarRequest: CreateCarRequest;
+    carRequest: CarRequest;
 }
 
 export interface DeleteCarByIdRequestParams {
     id: number;
 }
 
+export interface FindCarsByMileageCounterRequestParams {
+    mileageCounter: number;
+}
+
+export interface FindCarsByPlateRequestParams {
+    plate: string;
+}
+
+export interface FindCarsByPriceRequestParams {
+    price: number;
+}
+
+export interface FindCarsByYearRequestParams {
+    year: number;
+}
+
 export interface GetCarByIdRequestParams {
     id: number;
 }
 
+export interface GetCarsByFuelTypeIdRequestParams {
+    fuelTypeId: number;
+}
+
+export interface GetCarsByTransmissionTypeIdRequestParams {
+    transmissionTypeId: number;
+}
+
 export interface UpdateCarByIdRequestParams {
     id: number;
-    updateCarRequest: UpdateCarRequest;
+    carRequest: CarRequest;
 }
 
 
@@ -52,7 +71,7 @@ export interface CarControllerServiceInterface {
      * 
 * @param requestParameters
      */
-    createCar(requestParameters: CreateCarRequestParams, extraHttpRequestParams?: any): Observable<CreatedCarResponse>;
+    createCar(requestParameters: CreateCarRequestParams, extraHttpRequestParams?: any): Observable<CarResponse>;
 
     /**
      * 
@@ -64,21 +83,63 @@ export interface CarControllerServiceInterface {
     /**
      * 
      * 
+* @param requestParameters
+     */
+    findCarsByMileageCounter(requestParameters: FindCarsByMileageCounterRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    findCarsByPlate(requestParameters: FindCarsByPlateRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    findCarsByPrice(requestParameters: FindCarsByPriceRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    findCarsByYear(requestParameters: FindCarsByYearRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
 */
-    getAllCars(extraHttpRequestParams?: any): Observable<Array<GetAllCarResponse>>;
+    getAllCars(extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
 
     /**
      * 
      * 
 * @param requestParameters
      */
-    getCarById(requestParameters: GetCarByIdRequestParams, extraHttpRequestParams?: any): Observable<GetCarByIdResponse>;
+    getCarById(requestParameters: GetCarByIdRequestParams, extraHttpRequestParams?: any): Observable<CarResponse>;
 
     /**
      * 
      * 
 * @param requestParameters
      */
-    updateCarById(requestParameters: UpdateCarByIdRequestParams, extraHttpRequestParams?: any): Observable<UpdateCarResponse>;
+    getCarsByFuelTypeId(requestParameters: GetCarsByFuelTypeIdRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    getCarsByTransmissionTypeId(requestParameters: GetCarsByTransmissionTypeIdRequestParams, extraHttpRequestParams?: any): Observable<Array<CarResponse>>;
+
+    /**
+     * 
+     * 
+* @param requestParameters
+     */
+    updateCarById(requestParameters: UpdateCarByIdRequestParams, extraHttpRequestParams?: any): Observable<CarResponse>;
 
 }

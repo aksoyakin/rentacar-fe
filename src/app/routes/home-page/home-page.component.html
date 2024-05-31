@@ -1,32 +1,24 @@
 <app-home-layout>
-  <div class="d-flex flex-column justify-content-center align-items-center app-overlay">
-    <h1>Welcome to our rental gallery!</h1>
-    <app-button>View Models</app-button>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-        <app-brands-list-menu
-          [initialSelectedBrandId] ="selectedBrandId"
-          (selectBrand)="onSelectBrand($event)">
-        </app-brands-list-menu>
+    <div class="home-image d-flex justify-content-center align-items-center">
+      <div class="text-center text-white">
+        <h1>Welcome to our rental gallery!</h1>
+        <a href="#model-list" class="btn btn-lg btn-primary"> View Models </a>
       </div>
-      <div class="col-8">
-        <app-models-card-list 
-          [brandId]="selectedBrandId">   
-        </app-models-card-list>
-
+    </div>
+  
+    <div class="my-3 model-image">
+      <div class="row">
+        <div class="col-md-6 mb-4 mx-2">
+          <app-brands-list-menu
+            [initialSelectedBrandId]="selectedBrandId"
+            (selectBrand)="onSelectBrand($event)"
+          ></app-brands-list-menu>
+        </div>
+        
       </div>
-
-      <div>
-        <app-cars-list-menu></app-cars-list-menu>
-      </div>
-
 
     </div>
-  </div>
 
-  <app-logo-slider></app-logo-slider>
-
-</app-home-layout>
+    <app-cars-card-list></app-cars-card-list>
+  </app-home-layout>
+  

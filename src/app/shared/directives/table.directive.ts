@@ -1,17 +1,14 @@
-import {Directive, ElementRef, OnInit} from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appTable]',
-  standalone: true
+  standalone: true,
 })
-export class TableDirective implements OnInit{
-  // directives, angularda bir elementin özelliklerini genişletmek için kullanılır
-
+export class TableDirective {
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     (this.elementRef.nativeElement as HTMLTableElement).classList.add('table');
 
   }
-
-}
+ }

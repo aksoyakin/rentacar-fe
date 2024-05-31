@@ -12,6 +12,6 @@
 
 
 export interface CreateBrandRequest { 
-    name: string;
+    name?: string;
 }
 

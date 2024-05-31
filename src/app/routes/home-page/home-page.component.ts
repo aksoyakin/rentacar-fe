@@ -1,15 +1,12 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-
-import {HomeLayoutComponent} from "../../shared/layouts/home-layout/home-layout.component";
-import {ButtonComponent} from "../../shared/components/button/button.component";
-import {BrandsListMenuComponent} from "../../features/brands/components/brands-list-menu/brands-list-menu.component";
-//import {BrandListItemDto} from "../../features/brands/models/brand-list-item-dto";
-import {ActivatedRoute, Router} from "@angular/router";
-import {GetAllBrandResponse, GetAllTransmissionResponse} from "../../shared/services/api";
 import { CommonModule } from '@angular/common';
-import { ModelsCardListComponent } from '../../features/models/components/models-card-list/models-card-list.component';
-import { LogoSliderComponent } from '../../shared/components/logo-slider/logo-slider.component';
-import { CarsListMenuComponent } from '../../features/cars/components/cars-list-menu/cars-list-menu.component';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { HomeLayoutComponent } from '../../shared/home-layout/home-layout.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
+import { BrandsListMenuComponent } from '../../features/brands/components/brands-list-menu/brands-list-menu.component';
+import { SliderComponent } from '../../shared/components/slider/slider.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GetAllBrandResponse, TransmissionTypeResponse } from '../../shared/services/api';
+import { CarsCardListComponent } from '../../features/cars/cars-card-list/cars-card-list.component';
 
 @Component({
   selector: 'app-home-page',
@@ -19,35 +16,30 @@ import { CarsListMenuComponent } from '../../features/cars/components/cars-list-
     HomeLayoutComponent,
     ButtonComponent,
     BrandsListMenuComponent,
-    ModelsCardListComponent,
-    LogoSliderComponent,
-    
-    CarsListMenuComponent
+    SliderComponent,
 
+    CarsCardListComponent
     
-    
-],
+  ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit {
   selectedBrandId: number | null = null;
-
   selectedTransmissionId: number | null = null;
 
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-
-  constructor(private router: Router, private route: ActivatedRoute) { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSelectedBrandIdFromRoute();
-    this.getSelectedTransmissionIdFromRoute();
+
   }
 
-  private getSelectedBrandIdFromRoute() {
+
+  getSelectedBrandIdFromRoute() {
     this.route.queryParams.subscribe((params) => {
-      if(
+      if (
         params['brandId'] &&
         this.selectedBrandId !== Number.parseInt(params['brandId'])
       )
@@ -55,42 +47,16 @@ export class HomePageComponent implements OnInit{
     });
   }
 
-  onSelectBrand(selectedBrand: GetAllBrandResponse | null){
+  onSelectBrand(selectedBrand: GetAllBrandResponse | null) {
     this.selectedBrandId = selectedBrand?.id ?? null;
 
-    if(this.selectedBrandId !== null)
+    if (this.selectedBrandId !== null) {
       this.router.navigate([''], {
         queryParams: {
-          brandId: this.selectedBrandId,
-        },
-      });
-    else this.router.navigate(['']);
-  }
-
-  onSelectTransmission(selectedTransmission: GetAllTransmissionResponse | null) {
-    this.selectedTransmissionId = selectedTransmission?.id ?? null;
-
-    if(this.selectedTransmissionId !== null) {
-      this.router.navigate([''], {
-        queryParams: {
-          tranmissionId: this.selectedTransmissionId,
+          brandId: this.selectedBrandId, // ?brandId=1
         },
       });
     } else this.router.navigate(['']);
   }
 
-  getSelectedTransmissionIdFromRoute() {
-    this.route.queryParams.subscribe((params) => {
-      if(
-        params['transmissionId'] &&
-        this.selectedTransmissionId !==
-          Number.parseInt(params['transmissionId'])
-      )
-      this.selectedTransmissionId = Number.parseInt(params['transmissionId']);
-    });
-  }
-
-
-
-
-}
+ }

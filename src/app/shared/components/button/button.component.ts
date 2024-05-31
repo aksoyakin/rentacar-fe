@@ -1,17 +1,19 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class ButtonComponent {
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
 
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() variant: ButtonVariant = 'primary';
   @Output() click = new EventEmitter<MouseEvent>();
 
@@ -22,7 +24,6 @@ export class ButtonComponent {
   get buttonClass():string{
     return `btn btn-${this.variant}`;
   }
-
 
 }
 
@@ -36,3 +37,5 @@ export type ButtonVariant =
   | 'light'
   | 'dark'
   | 'link';
+
+ 

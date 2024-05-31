@@ -15,7 +15,5 @@ export interface UpdateModelResponse {
     id?: number;
     name?: string;
     brandId?: number;
-    fuelId?: number;
-    transmissionId?: number;
 }
 

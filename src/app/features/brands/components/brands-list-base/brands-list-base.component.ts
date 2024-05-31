@@ -1,15 +1,18 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
-import {GetAllBrandResponse} from "../../../../shared/services/api";
-import {BrandsService} from "../../services/brands.service";
-
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { GetAllBrandResponse } from '../../../../shared/services/api';
+import { BrandService } from '../../services/brand.service';
 
 @Component({
+  selector: 'app-brands-list-base',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   template: ``,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrandsListBaseComponent {
+export class BrandsListBaseComponent { 
   @Input() initialSelectedBrandId: number | null = null;
   @Output() selectBrand = new EventEmitter<GetAllBrandResponse | null>();
 
@@ -18,7 +21,7 @@ export class BrandsListBaseComponent {
   initialSelectedBrandIndex: number | null = null;
 
   constructor(
-    private brandsService: BrandsService,
+    private brandsService: BrandService,
     private change: ChangeDetectorRef) {}
 
   ngOnInit() {
@@ -47,4 +50,4 @@ export class BrandsListBaseComponent {
     this.selectBrand.emit(this.selectedBrand);
   }
 
-}
+ }

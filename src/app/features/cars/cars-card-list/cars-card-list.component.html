@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+
+<div class="row">
+    @for (car of filteredCars; track $index)     
+    {
+        <div class="card" style="width: 18rem;">
+          <img class="fab" src="../../../assets/images/brandlogos/mercedes-caar.png" alt="">
+
+            <div class="card-body">
+              <h5 class="card-title"> {{car.description}} </h5>
+              <p class="card-text"><b>Year: </b> {{car.year}} </p>
+              <p class="card-text"><b>Mileage:</b> {{car.mileageCounter}} </p>
+              <p class="card-text"><b>Seating Capacity:</b> {{car.seatingCapacity}} </p>
+              <p class="card-text"><b>Plate:</b>  {{car.plate}} </p>
+              <i class="fa-solid fa-paintbrush"></i>   <p class="card-text"><b>Color:</b> {{car.color}} </p>
+              <h3 class="card-text">Price: {{car.price | currency}}  </h3>          
+              <button type="button" class="btn btn-primary"> Rent Now </button>
+            </div>
+        </div>
+      }
+  
+  </div>

@@ -14,7 +14,5 @@
 export interface CreateModelRequest { 
     name?: string;
     brandId?: number;
-    fuelId?: number;
-    transmissionId?: number;
 }
 
